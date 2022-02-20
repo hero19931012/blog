@@ -62,12 +62,20 @@ jobs:
 
 #### 3. 設定全域 path prefix
 
-打開 `package.json`，在 scripts.serve 指定上加上 `--pathprefix` 的 option，後面接 repo name，這是因為部署在 GitHub Pages 上會多一個 subdomain，主要 domain 會是 `username.github.io`，加上 prefix 讓所有的 link 都以這個 subdomain 為主
+在 GitHub Pages 上部署，會有一個屬於自己的 domain `username.github.io`，gh-pages 透過增加一層 subdomain 來區分不同的 repo，如果要訪問一個路徑 `path`，必須用 `username.github.io/repo-name/path`，才能正確存取，因此需要將專案裡所有的 link 加上一個 prefix。
 
-```json
- "scripts": {
-	 "serve": "npm run clean && env NODE_ENV=production eleventy --serve --pathprefix 'REPO_NAME'",
-  }
+打開 `.eleventy.js`，找到最下面 return 的部分，可以看到 subdirectory 的說明，把原本被註解的 `pathPrefix: "/"` 取消註解，改成 repo name 就可以了。
+
+```javascript
+// If your site lives in a different subdirectory, change this.
+// Leading or trailing slashes are all normalized away, so don’t worry about those.
+
+// If you don’t have a subdirectory, use "" or "/" (they do the same thing)
+// This is only used for link URLs (it does not affect your file structure)
+// Best paired with the `url` filter: https://www.11ty.io/docs/filters/url/
+
+// You can also pass this in on the command line using `--pathprefix`
+pathPrefix: "/repo-name"
 ```
 
 #### 4. 產生與設定 Deploy key
