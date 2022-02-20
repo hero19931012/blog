@@ -89,7 +89,7 @@ dl {
 }
 
 header aside {
-  font-style: italic;
+  /* font-style: italic; */
 }
 
 #nav {
@@ -649,7 +649,7 @@ h6 {
 h2,
 h4,
 h6 {
-  font-style: italic;
+  /* font-style: italic; */
 }
 a {
   color: #f9c412;
@@ -694,7 +694,7 @@ form {
   margin-bottom: 1.5em;
 }
 form small {
-  font-style: italic;
+  /* font-style: italic; */
 }
 fieldset {
   padding: 0;
@@ -924,7 +924,8 @@ main {
 footer {
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
-  padding: 3em;
+  padding: 0.5em;
+  font-size: 14px;
   text-align: center;
 }
 footer > * {
@@ -1081,7 +1082,7 @@ pre[class*="language-"] {
   font-weight: 700;
 }
 .token.italic {
-  font-style: italic;
+  /* font-style: italic; */
 }
 .token.entity {
   cursor: help;
