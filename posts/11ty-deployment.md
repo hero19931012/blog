@@ -43,10 +43,10 @@ jobs:
 
 	 steps:
 		- uses: actions/checkout@v2
-		- name: Use Node.js ${{ matrix.node-version }}
+		- name: Use Node.js $matrix.node-version
 		  uses: actions/setup-node@v1
 		  with:
-			 node-version: ${{ matrix.node-version }}
+			 node-version: $matrix.node-version
 		- run: npm install
 		- run: npm run build-ci
 
@@ -54,7 +54,7 @@ jobs:
 		- name: Deploy
 		  uses: peaceiris/actions-gh-pages@v3
 		  with:
-			 deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+			 deploy_key: $secrets.ACTIONS_DEPLOY_KEY
 			 publish_dir: ./_site
 ```
 
@@ -88,19 +88,19 @@ ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f gh-pages -N ""
 
 進入 repo Settings 頁面
 
-![settings-tab]({{ '/img/11ty-deployment/settings-tab.png' | url }})
+![settings-tab](/img/11ty-deployment/settings-tab.png)
 
 選擇 Security > Deploy Keys > Add deploy key
 
-![deploy-key]({{ '/img/11ty-deployment/deploy-key.png' | url }})
+![deploy-key](/img/11ty-deployment/deploy-key.png)
 
 填入 title 與 key (複製 gh-pages.pub 的內容)，然後勾選 `Allow write access`，允許修改權限
 
-![add-deploy-key]({{ '/img/11ty-deployment/add-deploy-key.png' | url }})
+![add-deploy-key](/img/11ty-deployment/add-deploy-key.png)
 
 接著到 Security > Secrets > Actions，點選 New repository secret，將 Name 填入 ACTIONS_DEPLOY_KEY，key 則複製 gh-pages 的內容貼上
 
-![add-secret]({{ '/img/11ty-deployment/add-secret.png' | url }})
+![add-secret](/img/11ty-deployment/add-secret.png)
 
 #### 5. Commit 並推上 GitHub
 
@@ -110,21 +110,21 @@ ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f gh-pages -N ""
 
 檢查 repo Actions 頁面，可以看到所有正在執行或之前已經跑好的 workflows，並會根據 commit 來命名，這邊會看到 2 個分別是 CI 與 CodeQL 的 workflow，是 eleventy-high-performance-blog 內建的
 
-![default-actions]({{ '/img/11ty-deployment/default-actions.png' | url }})
+![default-actions](/img/11ty-deployment/default-actions.png)
 
 這 2 個跑好後會出現第 3 個名為 pages-build-deployment 的 workflow，是將網站部署到 gh-pages 的 workflow
 
-![deploy-action]({{ '/img/11ty-deployment/deploy-action.png' | url }})
+![deploy-action](/img/11ty-deployment/deploy-action.png)
 
 點進去可以看 log 了解現在在什麼階段，完成後在 deploy 的區塊下會有部署完的網址，沒意外是 `https://username.github.io/repo-name`
 
-![deploy-action-detail]({{ '/img/11ty-deployment/deploy-action-detail.png' | url }})
+![deploy-action-detail](/img/11ty-deployment/deploy-action-detail.png)
 
 #### 7. 部署完成
 
 網址列輸入該網址，沒出現 404 而是以下畫面的話就是部署成功了
 
-![deploy-success]({{ '/img/11ty-deployment/deploy-success.png' | url }})
+![deploy-success](/img/11ty-deployment/deploy-success.png)
 
 ### 後記
 
@@ -137,6 +137,8 @@ ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f gh-pages -N ""
 ```
 
 缺點就是不太好看，也沒辦法 preview (還是可以用 npm run watch 在瀏覽器裡 preview 啦)，我研究了一整天，想要找到能夠對 markdown 裡面的 img 路徑加上 prefix 的方法，但是沒找到，甚至還想說自己寫個 markdown-it 的 plugin 好了，後來覺得太麻煩作罷，就先接受這樣子了。
+
+>*2022/4/10 更新，我後來還是買了域名，所以就可以照正常方式使用，不需透過 liquid 預先編輯。*
 
 以上就是粗略的 11ty 部落格架設記錄。
 
