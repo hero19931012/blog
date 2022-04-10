@@ -50,7 +50,7 @@ jobs:
 		- run: npm install
 		- run: npm run build-ci
 
-		# 加人下面部署的 action
+		# 加入下面部署的 action
 		- name: Deploy
 		  uses: peaceiris/actions-gh-pages@v3
 		  with:
