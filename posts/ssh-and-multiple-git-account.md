@@ -22,7 +22,7 @@ SSH key 用來與 GitHub 連線，不用像網頁登入需要輸入帳號密碼�
     ssh-keygen -t rsa -C "userName@address"
     ```
 
-    中間會詢問要存放的路徑與檔名，通常預設路徑在會 `/Users/{{username}}/.ssh/id_rsa`
+    中間會詢問要存放的路徑與檔名，通常預設路徑在會 `/Users/{username}/.ssh/id_rsa`
 
     ```bash
     >Enter a file in which to save the key (/Users/username/.ssh/id_rsa): [Press enter]
@@ -103,7 +103,8 @@ SSH key 用來與 GitHub 連線，不用像網頁登入需要輸入帳號密碼�
     ![](https://i.imgur.com/p2vdSxz.png)
     
     ```bash
-    git clone git@github.com:{{username}}/{{repository}}
+    git clone git@github.com:{username}/{repository}
+    git clone git@github-personal:{username}/{repository}
     ```
 
 ## Reference
