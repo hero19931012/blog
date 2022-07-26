@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>Huiming&#39;s Blog</title>
+	<subtitle>Be a doer, not a dreamer.</subtitle>
+	
+	<link href="https://hero19931012.github.io/feed/feed.xml" rel="self"/>
+	<link href="https://hero19931012.github.io/blog"/>
+	<updated>2022-07-26T00:00:00-00:00</updated>
+	<id></id>
+	<author>
+		<name>Huiming</name>
+		<email></email>
+	</author>
+	
+	<entry>
+		<title>11ty 部落格部署紀錄</title>
+		<link href="https://hero19931012.github.io/posts/11ty-deployment/"/>
+		<updated>2022-02-20T00:00:00-00:00</updated>
+		<id>https://hero19931012.github.io/posts/11ty-deployment/</id>
+		<content type="html">
+		  &lt;p&gt;受到 &lt;a href=&quot;https://pse.is/3vf88q&quot;&gt;「星巴哥文章推薦」開發全記錄 — 從 Hexo 到 11ty&lt;/a&gt; 與 &lt;a href=&quot;https://pse.is/3uztdr&quot;&gt;除了 hexo，也可以考慮用 eleventy 來寫技術部落格 - Huli&lt;/a&gt; 的啟發，決定動手架一個想了很久但都沒做的個人部落格。&lt;/p&gt;
+&lt;h3 id=&quot;%E7%92%B0%E5%A2%83&quot;&gt;環境 &lt;a class=&quot;direct-link&quot; href=&quot;#%E7%92%B0%E5%A2%83&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;透過 &lt;a href=&quot;https://github.com/google/eleventy-high-performance-blog&quot;&gt;google/eleventy-high-performance-blog&lt;/a&gt; 產生靜態網站，部署在 GitHub Pages 上。&lt;/p&gt;
+&lt;h3 id=&quot;%E6%AD%A5%E9%A9%9F&quot;&gt;步驟 &lt;a class=&quot;direct-link&quot; href=&quot;#%E6%AD%A5%E9%A9%9F&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;1.-%E5%BB%BA%E7%AB%8B-repository&quot;&gt;1. 建立 repository &lt;a class=&quot;direct-link&quot; href=&quot;#1.-%E5%BB%BA%E7%AB%8B-repository&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;用 &lt;a href=&quot;https://github.com/google/eleventy-high-performance-blog&quot;&gt;high performance blog template&lt;/a&gt; 當作 template 製作一個自己的 repo，然後 clone 到 local&lt;/p&gt;
+&lt;h4 id=&quot;2.-%E8%A8%AD%E5%AE%9A-github-actions&quot;&gt;2. 設定 GitHub Actions &lt;a class=&quot;direct-link&quot; href=&quot;#2.-%E8%A8%AD%E5%AE%9A-github-actions&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;參考 &lt;a href=&quot;https://www.linkedin.com/pulse/eleventy-github-pages-lea-tortay/&quot;&gt;Eleventy and Github pages&lt;/a&gt; 設定 repo 在 commit 之後要執行的 actions。在編輯器中打開 &lt;code&gt;.github/workflows/build-and-test.yaml&lt;/code&gt;，加入一個 deploy 的 step:&lt;/p&gt;
+&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Runs build and test&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; CI&lt;br&gt;&lt;br&gt;&lt;span class=&quot;token key atrule&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token key atrule&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;br&gt;	 &lt;span class=&quot;token key atrule&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;main&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token key atrule&quot;&gt;pull_request&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;br&gt;	 &lt;span class=&quot;token key atrule&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;main&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span class=&quot;token key atrule&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token key atrule&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;br&gt;	 &lt;span class=&quot;token key atrule&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ubuntu&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;latest&lt;br&gt;&lt;br&gt;	 &lt;span class=&quot;token key atrule&quot;&gt;strategy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;br&gt;		&lt;span class=&quot;token key atrule&quot;&gt;matrix&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;br&gt;		  &lt;span class=&quot;token key atrule&quot;&gt;node-version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;12.x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; 14.x&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;br&gt;&lt;br&gt;	 &lt;span class=&quot;token key atrule&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;br&gt;		&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/checkout@v2&lt;br&gt;		&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Use Node.js $matrix.node&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;version&lt;br&gt;		  &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/setup&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;node@v1&lt;br&gt;		  &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;br&gt;			 &lt;span class=&quot;token key atrule&quot;&gt;node-version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $matrix.node&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;version&lt;br&gt;		&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm install&lt;br&gt;		&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm run build&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;ci&lt;br&gt;&lt;br&gt;		&lt;span class=&quot;token comment&quot;&gt;# 加入下面部署的 action&lt;/span&gt;&lt;br&gt;		&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Deploy&lt;br&gt;		  &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; peaceiris/actions&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;gh&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;pages@v3&lt;br&gt;		  &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;br&gt;			 &lt;span class=&quot;token key atrule&quot;&gt;deploy_key&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $secrets.ACTIONS_DEPLOY_KEY&lt;br&gt;			 &lt;span class=&quot;token key atrule&quot;&gt;publish_dir&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ./_site&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;secrets.ACTIONS_DEPLOY_KEY&lt;/code&gt; 待會會在 GitHub 上面設定。&lt;/p&gt;
+&lt;h4 id=&quot;3.-%E8%A8%AD%E5%AE%9A%E5%85%A8%E5%9F%9F-path-prefix&quot;&gt;3. 設定全域 path prefix &lt;a class=&quot;direct-link&quot; href=&quot;#3.-%E8%A8%AD%E5%AE%9A%E5%85%A8%E5%9F%9F-path-prefix&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;在 GitHub Pages 上部署，會有一個屬於自己的 domain &lt;code&gt;username.github.io&lt;/code&gt;，gh-pages 透過增加一層 subdomain 來區分不同的 repo，如果要訪問一個路徑 &lt;code&gt;path&lt;/code&gt;，必須用 &lt;code&gt;username.github.io/repo-name/path&lt;/code&gt;，才能正確存取，因此需要將專案裡所有的 link 加上一個 prefix。&lt;/p&gt;
+&lt;p&gt;打開 &lt;code&gt;.eleventy.js&lt;/code&gt;，找到最下面 return 的部分，可以看到 subdirectory 的說明，把原本被註解的 &lt;code&gt;pathPrefix: &amp;quot;/&amp;quot;&lt;/code&gt; 取消註解，改成 repo name 就可以了。&lt;/p&gt;
+&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// If your site lives in a different subdirectory, change this.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token comment&quot;&gt;// Leading or trailing slashes are all normalized away, so don’t worry about those.&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span class=&quot;token comment&quot;&gt;// If you don’t have a subdirectory, use &quot;&quot; or &quot;/&quot; (they do the same thing)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token comment&quot;&gt;// This is only used for link URLs (it does not affect your file structure)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token comment&quot;&gt;// Best paired with the `url` filter: https://www.11ty.io/docs/filters/url/&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span class=&quot;token comment&quot;&gt;// You can also pass this in on the command line using `--pathprefix`&lt;/span&gt;&lt;br&gt;pathPrefix&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/repo-name&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;4.-%E7%94%A2%E7%94%9F%E8%88%87%E8%A8%AD%E5%AE%9A-deploy-key&quot;&gt;4. 產生與設定 Deploy key &lt;a class=&quot;direct-link&quot; href=&quot;#4.-%E7%94%A2%E7%94%9F%E8%88%87%E8%A8%AD%E5%AE%9A-deploy-key&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;終端機中用下面的指令產生 2 支檔案：&lt;strong&gt;gh-pages.pub&lt;/strong&gt; (public key) 和 &lt;strong&gt;gh-pages&lt;/strong&gt; (private key)&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;ssh-keygen -t rsa -b &lt;span class=&quot;token number&quot;&gt;4096&lt;/span&gt; -C &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config user.email&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&quot;&lt;/span&gt; -f gh-pages -N &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;進入 repo Settings 頁面&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hero19931012.github.io/img/11ty-deployment/settings-tab.png&quot; alt=&quot;settings-tab&quot;&gt;&lt;/p&gt;
+&lt;p&gt;選擇 Security &amp;gt; Deploy Keys &amp;gt; Add deploy key&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hero19931012.github.io/img/11ty-deployment/deploy-key.png&quot; alt=&quot;deploy-key&quot;&gt;&lt;/p&gt;
+&lt;p&gt;填入 title 與 key (複製 gh-pages.pub 的內容)，然後勾選 &lt;code&gt;Allow write access&lt;/code&gt;，允許修改權限&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hero19931012.github.io/img/11ty-deployment/add-deploy-key.png&quot; alt=&quot;add-deploy-key&quot;&gt;&lt;/p&gt;
+&lt;p&gt;接著到 Security &amp;gt; Secrets &amp;gt; Actions，點選 New repository secret，將 Name 填入 ACTIONS_DEPLOY_KEY，key 則複製 gh-pages 的內容貼上&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hero19931012.github.io/img/11ty-deployment/add-secret.png&quot; alt=&quot;add-secret&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;5.-commit-%E4%B8%A6%E6%8E%A8%E4%B8%8A-github&quot;&gt;5. Commit 並推上 GitHub &lt;a class=&quot;direct-link&quot; href=&quot;#5.-commit-%E4%B8%A6%E6%8E%A8%E4%B8%8A-github&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;回到本機，先把剛剛的修改 commit，然後 git push 上 Github&lt;/p&gt;
+&lt;h4 id=&quot;6.-%E7%A2%BA%E8%AA%8D-action-%E6%9C%89%E6%AD%A3%E5%B8%B8%E5%9F%B7%E8%A1%8C&quot;&gt;6. 確認 Action 有正常執行 &lt;a class=&quot;direct-link&quot; href=&quot;#6.-%E7%A2%BA%E8%AA%8D-action-%E6%9C%89%E6%AD%A3%E5%B8%B8%E5%9F%B7%E8%A1%8C&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;檢查 repo Actions 頁面，可以看到所有正在執行或之前已經跑好的 workflows，並會根據 commit 來命名，這邊會看到 2 個分別是 CI 與 CodeQL 的 workflow，是 eleventy-high-performance-blog 內建的&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hero19931012.github.io/img/11ty-deployment/default-actions.png&quot; alt=&quot;default-actions&quot;&gt;&lt;/p&gt;
+&lt;p&gt;這 2 個跑好後會出現第 3 個名為 pages-build-deployment 的 workflow，是將網站部署到 gh-pages 的 workflow&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hero19931012.github.io/img/11ty-deployment/deploy-action.png&quot; alt=&quot;deploy-action&quot;&gt;&lt;/p&gt;
+&lt;p&gt;點進去可以看 log 了解現在在什麼階段，完成後在 deploy 的區塊下會有部署完的網址，沒意外是 &lt;code&gt;https://username.github.io/repo-name&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hero19931012.github.io/img/11ty-deployment/deploy-action-detail.png&quot; alt=&quot;deploy-action-detail&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;7.-%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%88%90&quot;&gt;7. 部署完成 &lt;a class=&quot;direct-link&quot; href=&quot;#7.-%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%88%90&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;網址列輸入該網址，沒出現 404 而是以下畫面的話就是部署成功了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://hero19931012.github.io/img/11ty-deployment/deploy-success.png&quot; alt=&quot;deploy-success&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;%E5%BE%8C%E8%A8%98&quot;&gt;後記 &lt;a class=&quot;direct-link&quot; href=&quot;#%E5%BE%8C%E8%A8%98&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;這篇記錄只提到如何透過 GitHub Pages 搭配 GitHub Actions 來部署 11ty 網站，沒提到設計與客製頁面的開發是由於我只想先快速簡單弄一個可以放筆記的平台，所以目前都還沒客製自己的頁面，之後有需要會慢慢新增。&lt;/p&gt;
+&lt;p&gt;然後部署在 GitHub Pages 上有一個已知但不知道如何解決的問題，就是圖片在 markdown 裡面沒辦法套用 path prefix 的設定，也就會抓不到圖，猜測如果有買 domain 應該就可以解決這個問題，但我沒有 domain，所以目前只能 workaround，就是利用 11ty 的 markdown 會先經過 liquid template engine 編譯的設定，直接在 markdown 的圖片路徑上使用 filter，寫起來如下 (不含 backslash)：&lt;/p&gt;
+&lt;pre class=&quot;language-md&quot;&gt;&lt;code class=&quot;language-md&quot;&gt;![demo](\{\{ &#39;/img/first-post/abc.png&#39; | url \}\})&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;缺點就是不太好看，也沒辦法 preview (還是可以用 npm run watch 在瀏覽器裡 preview 啦)，我研究了一整天，想要找到能夠對 markdown 裡面的 img 路徑加上 prefix 的方法，但是沒找到，甚至還想說自己寫個 markdown-it 的 plugin 好了，後來覺得太麻煩作罷，就先接受這樣子了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;2022/4/10 更新，我後來還是買了域名，所以就可以照正常方式使用，不需透過 liquid 預先編輯。&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以上就是粗略的 11ty 部落格架設記錄。&lt;/p&gt;
+&lt;h3 id=&quot;references&quot;&gt;References &lt;a class=&quot;direct-link&quot; href=&quot;#references&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.linkedin.com/pulse/eleventy-github-pages-lea-tortay/&quot;&gt;Eleventy and Github pages | LinkedIn&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.rockyourcode.com/how-to-deploy-eleventy-to-github-pages-with-github-actions/&quot;&gt;How to Deploy Eleventy to GitHub Pages With GitHub Actions | rockyourcode&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/google/eleventy-high-performance-blog&quot;&gt;google/eleventy-high-performance-blog: A high performance blog template for the 11ty static site generator. (github.com)&lt;/a&gt;&lt;/p&gt;
+
+			
+		</content>
+	</entry>
+	
+	<entry>
+		<title>2022 1 年經驗非本科後端工程師面試記錄</title>
+		<link href="https://hero19931012.github.io/posts/2022-interviews/"/>
+		<updated>2022-04-10T00:00:00-00:00</updated>
+		<id>https://hero19931012.github.io/posts/2022-interviews/</id>
+		<content type="html">
+		  &lt;h2 id=&quot;summary&quot;&gt;Summary &lt;a class=&quot;direct-link&quot; href=&quot;#summary&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;%E5%90%84%E9%9A%8E%E6%AE%B5%E6%95%B8%E9%87%8F&quot;&gt;各階段數量 &lt;a class=&quot;direct-link&quot; href=&quot;#%E5%90%84%E9%9A%8E%E6%AE%B5%E6%95%B8%E9%87%8F&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;階段&lt;/th&gt;
+&lt;th&gt;數量&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;主動投遞&lt;/td&gt;
+&lt;td&gt;50-55 (104, cakeResume, yourator, email)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;公司邀請&lt;/td&gt;
+&lt;td&gt;6 (只計相關性質)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;面試&lt;/td&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;offer&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&quot;%E9%9D%A2%E8%A9%A6%E9%9A%8E%E6%AE%B5%E8%88%87%E7%B5%90%E6%9E%9C&quot;&gt;面試階段與結果 &lt;a class=&quot;direct-link&quot; href=&quot;#%E9%9D%A2%E8%A9%A6%E9%9A%8E%E6%AE%B5%E8%88%87%E7%B5%90%E6%9E%9C&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;公司&lt;/th&gt;
+&lt;th&gt;階段&lt;/th&gt;
+&lt;th&gt;結果&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;夢想動畫&lt;/td&gt;
+&lt;td&gt;一面&lt;/td&gt;
+&lt;td&gt;offer get，預算太低，低到不可思議，不發年終，比我現在年薪少了 10 幾萬，不這樣說看不出來有多誇張&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;歐立威&lt;/td&gt;
+&lt;td&gt;電話&lt;/td&gt;
+&lt;td&gt;無聲，hr 主動邀請，電話中說要幫我安排面試，然後就沒了，傻眼&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;台灣角川&lt;/td&gt;
+&lt;td&gt;視訊、二面 (智力測驗 + 面談)&lt;/td&gt;
+&lt;td&gt;offer get，等了一個多月才二面，package 比我報的少了一點，勉強可以接受&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;創譽科技&lt;/td&gt;
+&lt;td&gt;一面&lt;/td&gt;
+&lt;td&gt;offer get，因為是接案公司後來婉拒&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;軟領科技&lt;/td&gt;
+&lt;td&gt;一面&lt;/td&gt;
+&lt;td&gt;預算太低，用 AWS 用得很強，CTO 人也不錯，但 pay 實在不行，我現在薪水已經是他們 3-5 年年資的水準，我的想法是如果你們 JD 上寫 3-5 年經歷 5w-8w，我只有 1 年，你大可已讀，但找我去面試代表經歷跟薪資範圍有達成共識，不應該在找我去面試後，相談甚歡，結果最後用年資來砍我薪水，要這樣不如一開始就不要找我面試&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EZ_Table&lt;/td&gt;
+&lt;td&gt;一面 (JS &amp;amp; AWS 測驗 + 面談)&lt;/td&gt;
+&lt;td&gt;預算太低，寫測驗說給 30 分鐘，但過了一個小時還沒人來，還要我自己去問，體驗蠻差的，薪水部分他們也是說要 3-7 年才能給到我要的數字&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Welly&lt;/td&gt;
+&lt;td&gt;前測，一面 (智力測驗 + 面談)&lt;/td&gt;
+&lt;td&gt;婉拒，工作內容沒興趣，舊 ERP 翻新，1 人後端&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;齊舵管理顧問&lt;/td&gt;
+&lt;td&gt;視訊&lt;/td&gt;
+&lt;td&gt;婉拒，駐點&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ematic&lt;/td&gt;
+&lt;td&gt;視訊&lt;/td&gt;
+&lt;td&gt;婉拒，想找 SALES + RD 集合體，表達想專注在後端發展後就結束面談了&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;%E6%AA%A2%E8%A8%8E&quot;&gt;檢討 &lt;a class=&quot;direct-link&quot; href=&quot;#%E6%AA%A2%E8%A8%8E&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;記錄一些自己覺得有待加強的部分，以供日後的自己參考。&lt;/p&gt;
+&lt;h3 id=&quot;%E6%99%82%E6%A9%9F%E9%BB%9E&quot;&gt;時機點 &lt;a class=&quot;direct-link&quot; href=&quot;#%E6%99%82%E6%A9%9F%E9%BB%9E&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;這次年後求職，比起上次在 2020 年底求職，有感覺到低薪跟沒發展性的職缺比較多，不知道跟年後有部分人會領完年終然後積極地找機會有多少關係，但就整體求職的體驗而言，不像 2020 那樣有獲得較好的回饋，只能說時機點不是很好，以後應該會儘量在 Q3、Q4 找。&lt;/p&gt;
+&lt;h3 id=&quot;%E5%B1%A5%E6%AD%B7&quot;&gt;履歷 &lt;a class=&quot;direct-link&quot; href=&quot;#%E5%B1%A5%E6%AD%B7&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;再來是履歷部分，由於是後端，然後在公司也只主力開發一項產品 (也不知道賣得好不好，應該是賣不好)，所以能寫的真的不多，頂多就描述一下幾個專案中開發的功能跟用到的技術，寫的時候參考了很多別人的寫法，結果是看起來尚可，給人的感覺是會寫程式，但看不出到底到在專案中負責多少？貢獻多少東西？也許應該更著重在我在這個專案中的貢獻以及比例。&lt;/p&gt;
+&lt;p&gt;做過的 project 我在 2020 是用當時跟別人合作的 &lt;a href=&quot;https://github.com/hero19931012/mtr04-express-parlando&quot;&gt;Parlando&lt;/a&gt;，面試的時候獲得不少回饋，還有被稱讚做得很好看，超有成就感的，只是這次我就沒放，因為這個專案以現在的角度來看已經不堪拿出來 demo 了，像是有些風格不統一的寫法、架構不明確、有 bug 等等，都是讓我不想放出來的原因，除了這個專案比較完整以外，就沒別的可以放了，所以專案的部分留空，真的蠻可惜的。&lt;/p&gt;
+&lt;p&gt;如果是我自己要徵人，看到這個履歷只有一年然後只開發一項產品，也沒 side project，的確是會覺得沒什麼亮點，也會擔心只做一年就要走是不是有什麼問題？所以這邊的檢討就是還是得做 side project，比起鉅細糜遺的描述公司的專案做了什麼，直接看 code 更可以快速地了解一個人的程度。&lt;/p&gt;
+&lt;h3 id=&quot;%E9%9D%A2%E8%A9%A6&quot;&gt;面試 &lt;a class=&quot;direct-link&quot; href=&quot;#%E9%9D%A2%E8%A9%A6&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;最後是面試的部分，分成面談與技術測驗，面談我覺得沒什麼好講的，我認為我都講得不錯，就是有些前後邏輯要再順一下。&lt;/p&gt;
+&lt;p&gt;測驗部分有遇到專業測驗、智力測驗 (還有裝成性向測驗的智力測驗)、Live coding。專業測驗如果是面試前的測驗，通常有做點功課都可以寫得出來，智力測驗就看不懂的先跳過，寫完再回頭想剛剛沒想出來的，但我常遇到答案明顯選不出來的，莫明其妙，有測驗要篩人我可以認同，但是事前或到現場寫好之後，才在說薪水給不起或是要做我沒興趣的工作真的蠻無言的。&lt;/p&gt;
+&lt;p&gt;真的需要檢討的就屬 Live coding 了，這次求職遇到一次，考了 2 題在 LeetCode 中應該會屬於 easy 的題目，由於沒特別準備刷題，加上緊張的關係，想當然是解不出來，但是過程中我有盡可能地把我的思考講出來，讓面試官知道我在往哪個方向思考，面試官人其實也很 nice 會給提示，雖然最後 2 題都沒答對，連面試官都跟我說不好意思對一個非本科的考演算法，我說我才不好意思XD 結果收到 2 面通知的時候，人資還特別說面試官很看好我，當下真的覺得怎麼可能哈哈，最後就是順利地通過 2 面拿到 offer 了。&lt;/p&gt;
+&lt;p&gt;自這次經驗起我就決定開始刷 LeetCode 了，畢竟不是每個面試官都這麼仁慈的。&lt;/p&gt;
+&lt;h2 id=&quot;%E7%B8%BD%E7%B5%90%E8%88%87%E7%9B%AE%E6%A8%99&quot;&gt;總結與目標 &lt;a class=&quot;direct-link&quot; href=&quot;#%E7%B8%BD%E7%B5%90%E8%88%87%E7%9B%AE%E6%A8%99&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;總結就是，找工作不是當你被迫或發現應該換工作的時候才在準備，這件事應該是持續地、每天地在進行，課程上到一半？書只讀一半？side project 只寫了一半？但是機會不會等你準備好，持續學習、消化、產出與記錄，當需要回顧時就不用去想自己到底做了些什麼了。&lt;/p&gt;
+&lt;p&gt;最近看到一句話很喜歡，&lt;br&gt;
+Don&#39;t tell people your plans, show them your results.&lt;/p&gt;
+&lt;p&gt;有種&lt;strong&gt;做了才是你的&lt;/strong&gt;的感覺，送給大家，謝謝收看。&lt;/p&gt;
+
+			
+		</content>
+	</entry>
+	
+	<entry>
+		<title>設定 GitHub SSH 連線，並在同一台電腦設定不同 GitHub 帳號</title>
+		<link href="https://hero19931012.github.io/posts/ssh-and-multiple-git-account/"/>
+		<updated>2022-07-22T00:00:00-00:00</updated>
+		<id>https://hero19931012.github.io/posts/ssh-and-multiple-git-account/</id>
+		<content type="html">
+		  &lt;h2 id=&quot;%E5%89%8D%E8%A8%80&quot;&gt;前言 &lt;a class=&quot;direct-link&quot; href=&quot;#%E5%89%8D%E8%A8%80&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;SSH key 用來與 GitHub 連線，不用像網頁登入需要輸入帳號密碼。&lt;/p&gt;
+&lt;p&gt;由於工作與個人在 GitHub 使用不同的帳號，且公司有提供筆電，即使只在家使用也自由度大增，有時想做點自己的小專案，會需要在不同帳號間轉換 (其實是很懶不想一直換電腦)，所以參考別人的方法完成設定 SSH 連線與切換帳號，完成後以我自己的角度來記錄這篇心得。&lt;/p&gt;
+&lt;h2 id=&quot;%E6%AD%A5%E9%A9%9F&quot;&gt;步驟 &lt;a class=&quot;direct-link&quot; href=&quot;#%E6%AD%A5%E9%A9%9F&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;打開 terminal 透過&lt;code&gt;ssh-keygen&lt;/code&gt; 搭配 &lt;code&gt;RSA&lt;/code&gt; 演算法產生一對金鑰 (官方文件用的是 &lt;code&gt;ed25519&lt;/code&gt;，&lt;code&gt;RSA&lt;/code&gt; 對較舊的系統相容性較好，詳細可閱讀參考文件)&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; ~/.ssh&lt;br&gt;ssh-keygen -t rsa -C &lt;span class=&quot;token string&quot;&gt;&quot;userName@address&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;中間會詢問要存放的路徑與檔名，通常預設路徑在會 &lt;code&gt;/Users/{username}/.ssh/id_rsa&lt;/code&gt;&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;Enter a &lt;span class=&quot;token function&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;which&lt;/span&gt; to save the key &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;/Users/username/.ssh/id_rsa&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;: &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;Press enter&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;username 是目前的使用者名稱 (由於剛剛執行過 &lt;code&gt;cd ~/.ssh&lt;/code&gt;，可以直接用 &lt;code&gt;pwd&lt;/code&gt; 取得當前路徑)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;id_rsa&lt;/code&gt; 是根據目前使用的演算法產生&lt;/li&gt;
+&lt;li&gt;不輸入直接 Enter 套用預設值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;然後提示輸入 passphrase (不輸入也可，直接 Enter)&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; Enter passphrase &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;empty &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; no passphrase&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;: &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;Type a passphrase&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; Enter same passphrase again: &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;Type passphrase again&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;接著會產生 2 支檔案：&lt;code&gt;id_rsa&lt;/code&gt; 與 &lt;code&gt;id_rsa.pub&lt;/code&gt;，接下來把 &lt;code&gt;id_rsa.pub&lt;/code&gt; 的內容貼到 GitHub 上新增一把公鑰&lt;/p&gt;
+&lt;p&gt;Settings &amp;gt; SSH and GPG keys&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/QG7envj.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;New SSH keys&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/kkNtkQA.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;取一個名字然後把 &lt;code&gt;id_rsa.pub&lt;/code&gt; 的內容貼上來&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;回到 terminal，把私鑰 &lt;code&gt;id_rsa&lt;/code&gt; 加入 &lt;code&gt;ssh-agent&lt;/code&gt;&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;ssh-add ~/.ssh/id_rsa&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;由於我們需要存取 2 個帳號，所以再把 1-3 步再做一次&lt;/p&gt;
+&lt;p&gt;金鑰名字另外取，例如 &lt;code&gt;id_rsa_personal&lt;/code&gt;，再去另一個 GitHub 帳號添加一次公鑰&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用 vim 打開 ~/.ssh/config&lt;/p&gt;
+&lt;p&gt;如果沒有這個檔案可以先執行 &lt;code&gt;touch config&lt;/code&gt;&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;vim&lt;/span&gt; config&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;輸入下面內容&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;#Default GitHub&lt;/span&gt;&lt;br&gt;Host github.com                      &lt;span class=&quot;token comment&quot;&gt;# 代號&lt;/span&gt;&lt;br&gt; HostName github.com                 &lt;span class=&quot;token comment&quot;&gt;# IP or domain name&lt;/span&gt;&lt;br&gt; User &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt;                            &lt;span class=&quot;token comment&quot;&gt;# username =&gt; git@github.com[]&lt;/span&gt;&lt;br&gt; IdentityFile ~/.ssh/id_rsa          &lt;span class=&quot;token comment&quot;&gt;# 指定的金鑰&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span class=&quot;token comment&quot;&gt;#New GitHub&lt;/span&gt;&lt;br&gt;Host github-personal&lt;br&gt; HostName github.com&lt;br&gt; User &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt;&lt;br&gt; IdentityFile ~/.ssh/id_rsa_personal&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;意思是針對不同的 host 使用不同的 key 進行 SSH 連線，&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;測試連線&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$ssh&lt;/span&gt; -T git@github.com&lt;br&gt;Hi User1&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt; You’ve successfully authenticated, but GitHub does not provide shell access.&lt;br&gt;&lt;br&gt;&lt;span class=&quot;token variable&quot;&gt;$ssh&lt;/span&gt; -T git@github-personal&lt;br&gt;Hi User2&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt; You’ve successfully authenticated, but GitHub does not provide shell access.&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Clone repository&lt;/p&gt;
+&lt;p&gt;選擇 SSH 的方式 clone 就可以了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/p2vdSxz.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone git@github.com:&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;username&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;/&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;repository&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone git@github-personal:&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;username&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;/&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;repository&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;reference&quot;&gt;Reference &lt;a class=&quot;direct-link&quot; href=&quot;#reference&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@hyWang/%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%80%E5%8F%B0%E9%9B%BB%E8%85%A6%E4%BD%BF%E7%94%A8%E5%A4%9A%E5%80%8Bgit%E5%B8%B3%E8%99%9F-907c8eadbabf&quot;&gt;如何在一台電腦使用多個 Git 帳號&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent&quot;&gt;Generating a new SSH key and adding it to the ssh-agent&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection&quot;&gt;Testing your SSH connection&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@honglong/%E9%81%B8%E6%93%87-ssh-key-%E7%9A%84%E5%8A%A0%E5%AF%86%E6%BC%94%E7%AE%97%E6%B3%95-70ca45c94d8e&quot;&gt;選擇 SSH key 的加密演算法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://chusiang.gitbooks.io/working-on-gnu-linux/content/20.ssh_config.html&quot;&gt;增進 SSH 使用效率 - ssh_config&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/%E6%B5%A6%E5%B3%B6%E5%A4%AA%E9%83%8E%E7%9A%84%E6%B0%B4%E6%97%8F%E7%BC%B8/how-to-setup-ssh-config-%E4%BD%BF%E7%94%A8-ssh-%E8%A8%AD%E5%AE%9A%E6%AA%94-74ad46f99818&quot;&gt;How to setup SSH config ：使用 SSH 設定檔簡化指令與連線網址&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://linuxize.com/post/using-the-ssh-config-file/&quot;&gt;Using the SSH Config File&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+			
+		</content>
+	</entry>
+	
+	<entry>
+		<title>資料結構筆記01 什麼是資料結構</title>
+		<link href="https://hero19931012.github.io/posts/data-structure-introduction/"/>
+		<updated>2022-07-26T00:00:00-00:00</updated>
+		<id>https://hero19931012.github.io/posts/data-structure-introduction/</id>
+		<content type="html">
+		  &lt;h2 id=&quot;%E5%AE%9A%E7%BE%A9&quot;&gt;定義 &lt;a class=&quot;direct-link&quot; href=&quot;#%E5%AE%9A%E7%BE%A9&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;整理資料的方式。&lt;br&gt;
+如何在電腦中存放資料。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;%E5%9F%BA%E6%9C%AC%E7%89%B9%E6%80%A7&quot;&gt;基本特性 &lt;a class=&quot;direct-link&quot; href=&quot;#%E5%9F%BA%E6%9C%AC%E7%89%B9%E6%80%A7&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;假設不同的資料結構就像是抽屣、衣櫥或冰箱等儲存空間，這個空間最主要的功能就是存放資料，所以一定都會有 &lt;code&gt;INSERT&lt;/code&gt; (放資料進去) 與 &lt;code&gt;GET&lt;/code&gt; (讀資料出來，不是刪除) 這 2 個方法。&lt;/p&gt;
+&lt;h3 id=&quot;%E5%85%B6%E4%BB%96%E7%9A%84%E5%AD%98%E5%8F%96%E6%96%B9%E6%B3%95&quot;&gt;其他的存取方法 &lt;a class=&quot;direct-link&quot; href=&quot;#%E5%85%B6%E4%BB%96%E7%9A%84%E5%AD%98%E5%8F%96%E6%96%B9%E6%B3%95&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Method&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;CONSTRUCT&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;如何建構&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;REMOVE&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;刪除資料&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;UPDATE&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;更新資料&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;%E7%82%BA%E4%BB%80%E9%BA%BC%E6%88%91%E5%80%91%E9%9C%80%E8%A6%81%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B&quot;&gt;為什麼我們需要資料結構 &lt;a class=&quot;direct-link&quot; href=&quot;#%E7%82%BA%E4%BB%80%E9%BA%BC%E6%88%91%E5%80%91%E9%9C%80%E8%A6%81%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;何謂好的程式？以最少資源完成預期的任務。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;當程式執行時，所需要的資源可大致分成 Space resource (空間), Computation resource (運算) 與其他類型的資源，其中資料結構主要影響空間上的資源，演算法主要影響運算上所需的資源 。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Space&lt;/code&gt;: memory, disk, transmission bandwidth =&amp;gt; cared by &lt;strong&gt;Data structure&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Computation&lt;/code&gt;: CPU, GPU, computation power =&amp;gt; cared by &lt;strong&gt;Algorithm&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Other&lt;/code&gt;: manpower, budget =&amp;gt; cared by management&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;%E5%AF%A6%E4%BD%9C%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E7%9A%84-trade-off&quot;&gt;實作資料結構的 trade off &lt;a class=&quot;direct-link&quot; href=&quot;#%E5%AF%A6%E4%BD%9C%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E7%9A%84-trade-off&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;沒有完美的資料結構可以適用所有情況，只有當下適合用的結構，選擇不同結構的同時往往都有所謂的 trade off，可能有下面幾種：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;fast get &amp;lt;=&amp;gt; slow insert: 取出來較快，但寫入較慢&lt;/li&gt;
+&lt;li&gt;fast get &amp;lt;=&amp;gt; more space: 取出來較快，但空間需求較大&lt;/li&gt;
+&lt;li&gt;較難的實作 &amp;lt;=&amp;gt; 較好的效能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在實作之前還是要思考&lt;strong&gt;值不值得&lt;/strong&gt;，如果非常小的專案或是很少人用的服務，其實根本不需要花這麼大的力氣去提升效能。&lt;/p&gt;
+&lt;h2 id=&quot;reference&quot;&gt;Reference &lt;a class=&quot;direct-link&quot; href=&quot;#reference&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=upMnTq9JB2c&quot;&gt;NTU DSA 2022: Course Introduction / Algorithm&lt;/a&gt;&lt;/p&gt;
+
+			
+		</content>
+	</entry>
+</feed>
