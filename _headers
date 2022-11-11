@@ -25,11 +25,6 @@
 
   Content-Security-Policy: default-src 'self';object-src 'none';script-src 'self' 'sha256-Ky9qZOPnMhQV/s7Fdb9TYAOfU4KtWNqCZaFK8tSzXa0=';style-src 'unsafe-inline';img-src 'self' data:
 
-/posts/index.html
-  Content-Security-Policy: default-src 'self';object-src 'none';script-src 'self' 'sha256-Ky9qZOPnMhQV/s7Fdb9TYAOfU4KtWNqCZaFK8tSzXa0=';style-src 'unsafe-inline';img-src 'self' data:
-/posts/
-  Content-Security-Policy: default-src 'self';object-src 'none';script-src 'self' 'sha256-Ky9qZOPnMhQV/s7Fdb9TYAOfU4KtWNqCZaFK8tSzXa0=';style-src 'unsafe-inline';img-src 'self' data:
-
 /index.html
   Content-Security-Policy: default-src 'self';object-src 'none';script-src 'self' 'sha256-Ky9qZOPnMhQV/s7Fdb9TYAOfU4KtWNqCZaFK8tSzXa0=';style-src 'unsafe-inline';img-src 'self' data:
 /
@@ -43,6 +38,11 @@
 /tags/index.html
   Content-Security-Policy: default-src 'self';object-src 'none';script-src 'self' 'sha256-Ky9qZOPnMhQV/s7Fdb9TYAOfU4KtWNqCZaFK8tSzXa0=';style-src 'unsafe-inline';img-src 'self' data:
 /tags/
+  Content-Security-Policy: default-src 'self';object-src 'none';script-src 'self' 'sha256-Ky9qZOPnMhQV/s7Fdb9TYAOfU4KtWNqCZaFK8tSzXa0=';style-src 'unsafe-inline';img-src 'self' data:
+
+/posts/index.html
+  Content-Security-Policy: default-src 'self';object-src 'none';script-src 'self' 'sha256-Ky9qZOPnMhQV/s7Fdb9TYAOfU4KtWNqCZaFK8tSzXa0=';style-src 'unsafe-inline';img-src 'self' data:
+/posts/
   Content-Security-Policy: default-src 'self';object-src 'none';script-src 'self' 'sha256-Ky9qZOPnMhQV/s7Fdb9TYAOfU4KtWNqCZaFK8tSzXa0=';style-src 'unsafe-inline';img-src 'self' data:
 
 /tags/11ty/index.html
@@ -73,6 +73,11 @@
 /posts/data-structure-introduction/index.html
   Content-Security-Policy: default-src 'self';object-src 'none';script-src 'self' 'sha256-Ky9qZOPnMhQV/s7Fdb9TYAOfU4KtWNqCZaFK8tSzXa0=';style-src 'unsafe-inline';img-src 'self' data:
 /posts/data-structure-introduction/
+  Content-Security-Policy: default-src 'self';object-src 'none';script-src 'self' 'sha256-Ky9qZOPnMhQV/s7Fdb9TYAOfU4KtWNqCZaFK8tSzXa0=';style-src 'unsafe-inline';img-src 'self' data:
+
+/posts/test/index.html
+  Content-Security-Policy: default-src 'self';object-src 'none';script-src 'self' 'sha256-Ky9qZOPnMhQV/s7Fdb9TYAOfU4KtWNqCZaFK8tSzXa0=';style-src 'unsafe-inline';img-src 'self' data:
+/posts/test/
   Content-Security-Policy: default-src 'self';object-src 'none';script-src 'self' 'sha256-Ky9qZOPnMhQV/s7Fdb9TYAOfU4KtWNqCZaFK8tSzXa0=';style-src 'unsafe-inline';img-src 'self' data:
 
 /posts/11ty-deployment/index.html
