@@ -16,6 +16,11 @@ jobs:
         node-version: [14.x]
 
     steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: hero19931012/mtr04-express-parlando
+          token: ${{ secrets.TEST_KEY }}
+
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
