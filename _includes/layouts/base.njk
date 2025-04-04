@@ -54,8 +54,25 @@
     <script csp-hash>if (/Mac OS X/.test(navigator.userAgent))document.documentElement.classList.add('apple')
     </script>
     <!-- css is inserted by optimize-html custom plugin -->
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+
+      .page-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      main {
+        flex: 1;
+      }
+    </style>
   </head>
   <body>
+    <div class=".page-wrapper">
     <header>
       <nav>
         <div id="nav">
@@ -95,7 +112,7 @@
       <br/>
       <span>Powered By <a href="https://github.com/google/eleventy-high-performance-blog">eleventy-high-performance-blog</a></span>
     </footer>
-
+    </div>
     <!-- Current page: {{ page.url | url }} -->
   </body>
 </html>
