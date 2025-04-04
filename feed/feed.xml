@@ -5,7 +5,7 @@
 	
 	<link href="https://hero19931012.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://hero19931012.github.io/blog"/>
-	<updated>2022-07-26T00:00:00-00:00</updated>
+	<updated>2022-07-22T00:00:00-00:00</updated>
 	<id></id>
 	<author>
 		<name>Huiming</name>
@@ -68,120 +68,6 @@
 &lt;p&gt;&lt;a href=&quot;https://www.linkedin.com/pulse/eleventy-github-pages-lea-tortay/&quot;&gt;Eleventy and Github pages | LinkedIn&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.rockyourcode.com/how-to-deploy-eleventy-to-github-pages-with-github-actions/&quot;&gt;How to Deploy Eleventy to GitHub Pages With GitHub Actions | rockyourcode&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/google/eleventy-high-performance-blog&quot;&gt;google/eleventy-high-performance-blog: A high performance blog template for the 11ty static site generator. (github.com)&lt;/a&gt;&lt;/p&gt;
-
-			
-		</content>
-	</entry>
-	
-	<entry>
-		<title>2022 1 年經驗非本科後端工程師面試記錄</title>
-		<link href="https://hero19931012.github.io/posts/2022-interviews/"/>
-		<updated>2022-04-10T00:00:00-00:00</updated>
-		<id>https://hero19931012.github.io/posts/2022-interviews/</id>
-		<content type="html">
-		  &lt;h2 id=&quot;summary&quot;&gt;Summary &lt;a class=&quot;direct-link&quot; href=&quot;#summary&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;%E5%90%84%E9%9A%8E%E6%AE%B5%E6%95%B8%E9%87%8F&quot;&gt;各階段數量 &lt;a class=&quot;direct-link&quot; href=&quot;#%E5%90%84%E9%9A%8E%E6%AE%B5%E6%95%B8%E9%87%8F&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;階段&lt;/th&gt;
-&lt;th&gt;數量&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;主動投遞&lt;/td&gt;
-&lt;td&gt;50-55 (104, cakeResume, yourator, email)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;公司邀請&lt;/td&gt;
-&lt;td&gt;6 (只計相關性質)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;面試&lt;/td&gt;
-&lt;td&gt;9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;offer&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&quot;%E9%9D%A2%E8%A9%A6%E9%9A%8E%E6%AE%B5%E8%88%87%E7%B5%90%E6%9E%9C&quot;&gt;面試階段與結果 &lt;a class=&quot;direct-link&quot; href=&quot;#%E9%9D%A2%E8%A9%A6%E9%9A%8E%E6%AE%B5%E8%88%87%E7%B5%90%E6%9E%9C&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;公司&lt;/th&gt;
-&lt;th&gt;階段&lt;/th&gt;
-&lt;th&gt;結果&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;夢想動畫&lt;/td&gt;
-&lt;td&gt;一面&lt;/td&gt;
-&lt;td&gt;offer get，預算太低，低到不可思議，不發年終，比我現在年薪少了 10 幾萬，不這樣說看不出來有多誇張&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;歐立威&lt;/td&gt;
-&lt;td&gt;電話&lt;/td&gt;
-&lt;td&gt;無聲，hr 主動邀請，電話中說要幫我安排面試，然後就沒了，傻眼&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;台灣角川&lt;/td&gt;
-&lt;td&gt;視訊、二面 (智力測驗 + 面談)&lt;/td&gt;
-&lt;td&gt;offer get，等了一個多月才二面，package 比我報的少了一點，勉強可以接受&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;創譽科技&lt;/td&gt;
-&lt;td&gt;一面&lt;/td&gt;
-&lt;td&gt;offer get，因為是接案公司後來婉拒&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;軟領科技&lt;/td&gt;
-&lt;td&gt;一面&lt;/td&gt;
-&lt;td&gt;預算太低，用 AWS 用得很強，CTO 人也不錯，但 pay 實在不行，我現在薪水已經是他們 3-5 年年資的水準，我的想法是如果你們 JD 上寫 3-5 年經歷 5w-8w，我只有 1 年，你大可已讀，但找我去面試代表經歷跟薪資範圍有達成共識，不應該在找我去面試後，相談甚歡，結果最後用年資來砍我薪水，要這樣不如一開始就不要找我面試&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;EZ_Table&lt;/td&gt;
-&lt;td&gt;一面 (JS &amp;amp; AWS 測驗 + 面談)&lt;/td&gt;
-&lt;td&gt;預算太低，寫測驗說給 30 分鐘，但過了一個小時還沒人來，還要我自己去問，體驗蠻差的，薪水部分他們也是說要 3-7 年才能給到我要的數字&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Welly&lt;/td&gt;
-&lt;td&gt;前測，一面 (智力測驗 + 面談)&lt;/td&gt;
-&lt;td&gt;婉拒，工作內容沒興趣，舊 ERP 翻新，1 人後端&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;齊舵管理顧問&lt;/td&gt;
-&lt;td&gt;視訊&lt;/td&gt;
-&lt;td&gt;婉拒，駐點&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Ematic&lt;/td&gt;
-&lt;td&gt;視訊&lt;/td&gt;
-&lt;td&gt;婉拒，想找 SALES + RD 集合體，表達想專注在後端發展後就結束面談了&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&quot;%E6%AA%A2%E8%A8%8E&quot;&gt;檢討 &lt;a class=&quot;direct-link&quot; href=&quot;#%E6%AA%A2%E8%A8%8E&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;記錄一些自己覺得有待加強的部分，以供日後的自己參考。&lt;/p&gt;
-&lt;h3 id=&quot;%E6%99%82%E6%A9%9F%E9%BB%9E&quot;&gt;時機點 &lt;a class=&quot;direct-link&quot; href=&quot;#%E6%99%82%E6%A9%9F%E9%BB%9E&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;這次年後求職，比起上次在 2020 年底求職，有感覺到低薪跟沒發展性的職缺比較多，不知道跟年後有部分人會領完年終然後積極地找機會有多少關係，但就整體求職的體驗而言，不像 2020 那樣有獲得較好的回饋，只能說時機點不是很好，以後應該會儘量在 Q3、Q4 找。&lt;/p&gt;
-&lt;h3 id=&quot;%E5%B1%A5%E6%AD%B7&quot;&gt;履歷 &lt;a class=&quot;direct-link&quot; href=&quot;#%E5%B1%A5%E6%AD%B7&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;再來是履歷部分，由於是後端，然後在公司也只主力開發一項產品 (也不知道賣得好不好，應該是賣不好)，所以能寫的真的不多，頂多就描述一下幾個專案中開發的功能跟用到的技術，寫的時候參考了很多別人的寫法，結果是看起來尚可，給人的感覺是會寫程式，但看不出到底到在專案中負責多少？貢獻多少東西？也許應該更著重在我在這個專案中的貢獻以及比例。&lt;/p&gt;
-&lt;p&gt;做過的 project 我在 2020 是用當時跟別人合作的 &lt;a href=&quot;https://github.com/hero19931012/mtr04-express-parlando&quot;&gt;Parlando&lt;/a&gt;，面試的時候獲得不少回饋，還有被稱讚做得很好看，超有成就感的，只是這次我就沒放，因為這個專案以現在的角度來看已經不堪拿出來 demo 了，像是有些風格不統一的寫法、架構不明確、有 bug 等等，都是讓我不想放出來的原因，除了這個專案比較完整以外，就沒別的可以放了，所以專案的部分留空，真的蠻可惜的。&lt;/p&gt;
-&lt;p&gt;如果是我自己要徵人，看到這個履歷只有一年然後只開發一項產品，也沒 side project，的確是會覺得沒什麼亮點，也會擔心只做一年就要走是不是有什麼問題？所以這邊的檢討就是還是得做 side project，比起鉅細糜遺的描述公司的專案做了什麼，直接看 code 更可以快速地了解一個人的程度。&lt;/p&gt;
-&lt;h3 id=&quot;%E9%9D%A2%E8%A9%A6&quot;&gt;面試 &lt;a class=&quot;direct-link&quot; href=&quot;#%E9%9D%A2%E8%A9%A6&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;最後是面試的部分，分成面談與技術測驗，面談我覺得沒什麼好講的，我認為我都講得不錯，就是有些前後邏輯要再順一下。&lt;/p&gt;
-&lt;p&gt;測驗部分有遇到專業測驗、智力測驗 (還有裝成性向測驗的智力測驗)、Live coding。專業測驗如果是面試前的測驗，通常有做點功課都可以寫得出來，智力測驗就看不懂的先跳過，寫完再回頭想剛剛沒想出來的，但我常遇到答案明顯選不出來的，莫明其妙，有測驗要篩人我可以認同，但是事前或到現場寫好之後，才在說薪水給不起或是要做我沒興趣的工作真的蠻無言的。&lt;/p&gt;
-&lt;p&gt;真的需要檢討的就屬 Live coding 了，這次求職遇到一次，考了 2 題在 LeetCode 中應該會屬於 easy 的題目，由於沒特別準備刷題，加上緊張的關係，想當然是解不出來，但是過程中我有盡可能地把我的思考講出來，讓面試官知道我在往哪個方向思考，面試官人其實也很 nice 會給提示，雖然最後 2 題都沒答對，連面試官都跟我說不好意思對一個非本科的考演算法，我說我才不好意思XD 結果收到 2 面通知的時候，人資還特別說面試官很看好我，當下真的覺得怎麼可能哈哈，最後就是順利地通過 2 面拿到 offer 了。&lt;/p&gt;
-&lt;p&gt;自這次經驗起我就決定開始刷 LeetCode 了，畢竟不是每個面試官都這麼仁慈的。&lt;/p&gt;
-&lt;h2 id=&quot;%E7%B8%BD%E7%B5%90%E8%88%87%E7%9B%AE%E6%A8%99&quot;&gt;總結與目標 &lt;a class=&quot;direct-link&quot; href=&quot;#%E7%B8%BD%E7%B5%90%E8%88%87%E7%9B%AE%E6%A8%99&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;總結就是，找工作不是當你被迫或發現應該換工作的時候才在準備，這件事應該是持續地、每天地在進行，課程上到一半？書只讀一半？side project 只寫了一半？但是機會不會等你準備好，持續學習、消化、產出與記錄，當需要回顧時就不用去想自己到底做了些什麼了。&lt;/p&gt;
-&lt;p&gt;最近看到一句話很喜歡，&lt;br&gt;
-Don&#39;t tell people your plans, show them your results.&lt;/p&gt;
-&lt;p&gt;有種&lt;strong&gt;做了才是你的&lt;/strong&gt;的感覺，送給大家，謝謝收看。&lt;/p&gt;
 
 			
 		</content>
@@ -256,67 +142,6 @@ Don&#39;t tell people your plans, show them your results.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&quot;https://medium.com/%E6%B5%A6%E5%B3%B6%E5%A4%AA%E9%83%8E%E7%9A%84%E6%B0%B4%E6%97%8F%E7%BC%B8/how-to-setup-ssh-config-%E4%BD%BF%E7%94%A8-ssh-%E8%A8%AD%E5%AE%9A%E6%AA%94-74ad46f99818&quot;&gt;How to setup SSH config ：使用 SSH 設定檔簡化指令與連線網址&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://linuxize.com/post/using-the-ssh-config-file/&quot;&gt;Using the SSH Config File&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-
-			
-		</content>
-	</entry>
-	
-	<entry>
-		<title>資料結構筆記01 什麼是資料結構</title>
-		<link href="https://hero19931012.github.io/posts/data-structure-introduction/"/>
-		<updated>2022-07-26T00:00:00-00:00</updated>
-		<id>https://hero19931012.github.io/posts/data-structure-introduction/</id>
-		<content type="html">
-		  &lt;h2 id=&quot;%E5%AE%9A%E7%BE%A9&quot;&gt;定義 &lt;a class=&quot;direct-link&quot; href=&quot;#%E5%AE%9A%E7%BE%A9&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;整理資料的方式。&lt;br&gt;
-如何在電腦中存放資料。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;%E5%9F%BA%E6%9C%AC%E7%89%B9%E6%80%A7&quot;&gt;基本特性 &lt;a class=&quot;direct-link&quot; href=&quot;#%E5%9F%BA%E6%9C%AC%E7%89%B9%E6%80%A7&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;假設不同的資料結構就像是抽屣、衣櫥或冰箱等儲存空間，這個空間最主要的功能就是存放資料，所以一定都會有 &lt;code&gt;INSERT&lt;/code&gt; (放資料進去) 與 &lt;code&gt;GET&lt;/code&gt; (讀資料出來，不是刪除) 這 2 個方法。&lt;/p&gt;
-&lt;h3 id=&quot;%E5%85%B6%E4%BB%96%E7%9A%84%E5%AD%98%E5%8F%96%E6%96%B9%E6%B3%95&quot;&gt;其他的存取方法 &lt;a class=&quot;direct-link&quot; href=&quot;#%E5%85%B6%E4%BB%96%E7%9A%84%E5%AD%98%E5%8F%96%E6%96%B9%E6%B3%95&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Method&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;CONSTRUCT&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;如何建構&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;REMOVE&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;刪除資料&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;UPDATE&lt;/code&gt;&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;更新資料&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&quot;%E7%82%BA%E4%BB%80%E9%BA%BC%E6%88%91%E5%80%91%E9%9C%80%E8%A6%81%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B&quot;&gt;為什麼我們需要資料結構 &lt;a class=&quot;direct-link&quot; href=&quot;#%E7%82%BA%E4%BB%80%E9%BA%BC%E6%88%91%E5%80%91%E9%9C%80%E8%A6%81%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;何謂好的程式？以最少資源完成預期的任務。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;當程式執行時，所需要的資源可大致分成 Space resource (空間), Computation resource (運算) 與其他類型的資源，其中資料結構主要影響空間上的資源，演算法主要影響運算上所需的資源 。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Space&lt;/code&gt;: memory, disk, transmission bandwidth =&amp;gt; cared by &lt;strong&gt;Data structure&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Computation&lt;/code&gt;: CPU, GPU, computation power =&amp;gt; cared by &lt;strong&gt;Algorithm&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Other&lt;/code&gt;: manpower, budget =&amp;gt; cared by management&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;%E5%AF%A6%E4%BD%9C%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E7%9A%84-trade-off&quot;&gt;實作資料結構的 trade off &lt;a class=&quot;direct-link&quot; href=&quot;#%E5%AF%A6%E4%BD%9C%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E7%9A%84-trade-off&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;沒有完美的資料結構可以適用所有情況，只有當下適合用的結構，選擇不同結構的同時往往都有所謂的 trade off，可能有下面幾種：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;fast get &amp;lt;=&amp;gt; slow insert: 取出來較快，但寫入較慢&lt;/li&gt;
-&lt;li&gt;fast get &amp;lt;=&amp;gt; more space: 取出來較快，但空間需求較大&lt;/li&gt;
-&lt;li&gt;較難的實作 &amp;lt;=&amp;gt; 較好的效能&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;在實作之前還是要思考&lt;strong&gt;值不值得&lt;/strong&gt;，如果非常小的專案或是很少人用的服務，其實根本不需要花這麼大的力氣去提升效能。&lt;/p&gt;
-&lt;h2 id=&quot;reference&quot;&gt;Reference &lt;a class=&quot;direct-link&quot; href=&quot;#reference&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=upMnTq9JB2c&quot;&gt;NTU DSA 2022: Course Introduction / Algorithm&lt;/a&gt;&lt;/p&gt;
 
 			
 		</content>
